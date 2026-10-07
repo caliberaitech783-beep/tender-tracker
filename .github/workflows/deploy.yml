@@ -1,0 +1,36 @@
+name: Deploy Tender Tracker
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: tender-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Package application
+        run: zip -r tender.zip package.json package-lock.json index.html vite.config.mjs server.mjs db.mjs auth-oidc.mjs portal-import.mjs runtime-config.mjs schema.sql src dist
+      - uses: azure/login@v3
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Deploy application
+        run: az webapp deploy --resource-group coalmine-fleet-maintenance-rg --name tender-tracker-783 --type zip --src-path tender.zip --async true
