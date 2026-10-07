@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.local/
+data/
+*.log
+.env
+.env.*
+!.env.example
+*.zip
+docs/workbook-inspection.json

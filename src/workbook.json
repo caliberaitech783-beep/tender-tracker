@@ -1,0 +1,983 @@
+{
+  "masters": {
+    "ClientType": [
+      "Central Government",
+      "State Government",
+      "PSU / Govt Undertaking",
+      "Municipal / Local Body",
+      "Private Sector",
+      "Multilateral / Funding Agency",
+      "International / Overseas"
+    ],
+    "Sector": [
+      "Infrastructure & Civil",
+      "Power & Energy",
+      "Oil & Gas",
+      "Water & Wastewater",
+      "IT & Digital Services",
+      "Telecom",
+      "Transportation & Rail",
+      "Healthcare",
+      "Defence",
+      "Manufacturing & Industrial",
+      "Facility Management",
+      "Consultancy Services",
+      "Others"
+    ],
+    "BU": [
+      "BU - Projects",
+      "BU - Services",
+      "BU - Products",
+      "BU - Consulting",
+      "BU - International"
+    ],
+    "Source": [
+      "Government e-Procurement Portal",
+      "Client Vendor Portal",
+      "Newspaper Advertisement",
+      "Direct Invitation",
+      "Tender Aggregator Service",
+      "Consultant / Partner Referral",
+      "Client Relationship / BD Lead"
+    ],
+    "TenderType": [
+      "Open Tender",
+      "Limited Tender",
+      "Single Source / Nomination",
+      "Expression of Interest (EOI)",
+      "Request for Qualification (RFQ)",
+      "Request for Proposal (RFP)",
+      "Request for Quotation",
+      "Two-Stage Tender",
+      "Global Tender"
+    ],
+    "BidSystem": [
+      "Single Envelope",
+      "Two Envelope (Technical + Financial)",
+      "Three Envelope (PQ + Tech + Fin)"
+    ],
+    "ContractType": [
+      "Lump Sum",
+      "Item Rate / Unit Rate",
+      "EPC / Turnkey",
+      "Rate Contract",
+      "Design & Build",
+      "O&M / AMC",
+      "PPP / BOT / HAM",
+      "Time & Material",
+      "Framework Agreement"
+    ],
+    "ProcMode": [
+      "e-Tender (Online)",
+      "Physical Submission",
+      "Hybrid"
+    ],
+    "Currency": [
+      "USD",
+      "EUR",
+      "GBP",
+      "INR",
+      "AED",
+      "SAR",
+      "QAR",
+      "Other"
+    ],
+    "EMDForm": [
+      "Bank Guarantee",
+      "Demand Draft",
+      "Online Payment / RTGS",
+      "Fixed Deposit Receipt",
+      "Insurance Surety Bond",
+      "Bid Securing Declaration",
+      "Exempted"
+    ],
+    "YesNo": [
+      "Yes",
+      "No"
+    ],
+    "YesNoNA": [
+      "Yes",
+      "No",
+      "Not Applicable"
+    ],
+    "Eligibility": [
+      "Fully Eligible",
+      "Partially Eligible (Needs JV/Partner)",
+      "Not Eligible",
+      "Under Assessment"
+    ],
+    "GoDecision": [
+      "Go",
+      "No-Go",
+      "Hold / Awaiting Info",
+      "Pending Review"
+    ],
+    "Priority": [
+      "High",
+      "Medium",
+      "Low"
+    ],
+    "PipelineStatus": [
+      "Identified",
+      "Under Review",
+      "Go - Moved to Bid Preparation",
+      "No-Go - Dropped",
+      "On Hold",
+      "Cancelled by Client"
+    ],
+    "TaskStatus": [
+      "Not Started",
+      "In Progress",
+      "Under Review",
+      "Completed",
+      "Not Applicable"
+    ],
+    "SubMode": [
+      "e-Portal Upload",
+      "Physical - Hand Delivery",
+      "Physical - Courier",
+      "Email",
+      "Hybrid"
+    ],
+    "SubStatus": [
+      "Not Started",
+      "In Preparation",
+      "Under Internal Review",
+      "Approved for Submission",
+      "Submitted",
+      "Withdrawn",
+      "Missed Deadline"
+    ],
+    "Responsive": [
+      "Responsive",
+      "Non-Responsive",
+      "Pending"
+    ],
+    "EvalMethod": [
+      "Lowest Price (L1)",
+      "QCBS",
+      "Quality Based (QBS)",
+      "Least Cost Selection (LCS)",
+      "Fixed Budget Selection",
+      "Best Value / MEAT"
+    ],
+    "EvalStage": [
+      "Technical Bid Opened",
+      "Preliminary Scrutiny",
+      "Technical Evaluation",
+      "Clarification Stage",
+      "Presentation / Demo",
+      "Technically Qualified",
+      "Technically Disqualified",
+      "Financial Bid Opened",
+      "Negotiation",
+      "Reverse Auction",
+      "Awaiting Award Decision",
+      "Evaluation Complete"
+    ],
+    "Rank": [
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6 or lower",
+      "H1 (Highest Score)",
+      "Not Ranked"
+    ],
+    "Outcome": [
+      "Awarded to Us",
+      "Not Awarded to Us",
+      "Cancelled by Client",
+      "Re-Tendered",
+      "Withdrawn by Us",
+      "Disqualified",
+      "Awaiting Decision"
+    ],
+    "LossReason": [
+      "Price Not Competitive",
+      "Low Technical Score",
+      "Disqualified - Eligibility Criteria",
+      "Disqualified - Documentation / Non-Compliance",
+      "Late / Missed Submission",
+      "Incumbent Advantage",
+      "Weak Client Relationship",
+      "Technical Solution Mismatch",
+      "Delivery / Timeline Not Acceptable",
+      "Commercial Deviations / Payment Terms",
+      "Insufficient Experience / Credentials",
+      "JV / Partner Issue",
+      "Tender Cancelled / Scope Changed",
+      "Other"
+    ],
+    "Controllable": [
+      "Controllable",
+      "Partially Controllable",
+      "Uncontrollable"
+    ],
+    "Refund": [
+      "Not Due",
+      "Refund Requested",
+      "Refunded",
+      "Converted to PBG",
+      "Forfeited"
+    ],
+    "InstrType": [
+      "EMD / Bid Security",
+      "Performance Bank Guarantee",
+      "Advance Payment Guarantee",
+      "Retention Money Guarantee",
+      "Warranty / DLP Guarantee"
+    ],
+    "InstrForm": [
+      "Bank Guarantee",
+      "Demand Draft",
+      "Online Payment",
+      "Fixed Deposit Receipt",
+      "Insurance Surety Bond"
+    ],
+    "BGStatus": [
+      "Active",
+      "Extended",
+      "Release Requested",
+      "Released / Returned",
+      "Encashed / Forfeited"
+    ],
+    "QueryImpact": [
+      "Price",
+      "Technical / Scope",
+      "Schedule",
+      "Commercial / Contractual",
+      "Eligibility",
+      "No Impact"
+    ],
+    "QueryStatus": [
+      "Draft",
+      "Submitted",
+      "Response Received",
+      "No Response",
+      "Closed"
+    ],
+    "DocKind": [
+      "Corrigendum",
+      "Addendum",
+      "Clarification Bulletin",
+      "Extension Notice"
+    ],
+    "CorrType": [
+      "Date Extension",
+      "Scope Change",
+      "BOQ / Quantity Change",
+      "Specification Change",
+      "Eligibility Change",
+      "Commercial Terms Change",
+      "Clarification Only",
+      "Tender Cancellation"
+    ],
+    "CompType": [
+      "Direct Competitor",
+      "JV / Consortium",
+      "Local Player",
+      "International Player",
+      "Incumbent"
+    ],
+    "CompOutcome": [
+      "Won",
+      "Lost",
+      "Disqualified",
+      "Unknown"
+    ],
+    "InfoSource": [
+      "Public Bid Opening",
+      "Portal Result Publication",
+      "Client Debrief",
+      "Market Intelligence",
+      "RTI / Formal Request",
+      "Partner / Vendor"
+    ]
+  },
+  "fields": [
+    {
+      "key": "tenderId",
+      "label": "Tender ID",
+      "type": "text",
+      "required": true,
+      "section": "S00",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "A"
+    },
+    {
+      "key": "title",
+      "label": "Tender Title / Description",
+      "type": "text",
+      "required": true,
+      "section": "S00",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "C"
+    },
+    {
+      "key": "client",
+      "label": "Client / Issuing Authority",
+      "type": "text",
+      "required": true,
+      "section": "S00",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "D"
+    },
+    {
+      "key": "deadline",
+      "label": "Bid Submission Deadline",
+      "type": "date",
+      "required": true,
+      "section": "S00",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "V"
+    },
+    {
+      "key": "daysRemaining",
+      "label": "Days Remaining to Submission",
+      "type": "number",
+      "required": false,
+      "section": "S00",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "AA"
+    },
+    {
+      "key": "deadlineAlert",
+      "label": "Deadline Alert",
+      "type": "text",
+      "required": false,
+      "section": "S00",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "AB"
+    },
+    {
+      "key": "estimatedValue",
+      "label": "Estimated Contract Value",
+      "type": "number",
+      "required": true,
+      "section": "S00",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AD"
+    },
+    {
+      "key": "goDecision",
+      "label": "Go / No-Go Decision",
+      "type": "select",
+      "required": true,
+      "section": "S00",
+      "list": "GoDecision",
+      "computed": false,
+      "sourceColumn": "BP"
+    },
+    {
+      "key": "pipelineStatus",
+      "label": "Pipeline Status",
+      "type": "select",
+      "required": true,
+      "section": "S00",
+      "list": "PipelineStatus",
+      "computed": false,
+      "sourceColumn": "BW"
+    },
+    {
+      "key": "owner",
+      "label": "Bid Manager / Owner",
+      "type": "user",
+      "required": true,
+      "section": "S00",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "BS"
+    },
+    {
+      "key": "priority",
+      "label": "Priority",
+      "type": "select",
+      "required": true,
+      "section": "S00",
+      "list": "Priority",
+      "computed": false,
+      "sourceColumn": "BT"
+    },
+    {
+      "key": "clientRef",
+      "label": "Client Tender Ref. No.",
+      "type": "text",
+      "required": true,
+      "section": "S01",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "B"
+    },
+    {
+      "key": "clientType",
+      "label": "Client Type",
+      "type": "select",
+      "required": true,
+      "section": "S01",
+      "list": "ClientType",
+      "computed": false,
+      "sourceColumn": "E"
+    },
+    {
+      "key": "sector",
+      "label": "Sector / Industry",
+      "type": "select",
+      "required": true,
+      "section": "S01",
+      "list": "Sector",
+      "computed": false,
+      "sourceColumn": "F"
+    },
+    {
+      "key": "businessUnit",
+      "label": "Business Unit",
+      "type": "select",
+      "required": true,
+      "section": "S01",
+      "list": "BU",
+      "computed": false,
+      "sourceColumn": "G"
+    },
+    {
+      "key": "country",
+      "label": "Country",
+      "type": "text",
+      "required": true,
+      "section": "S02",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "H"
+    },
+    {
+      "key": "region",
+      "label": "State / Region",
+      "type": "text",
+      "required": false,
+      "section": "S02",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "I"
+    },
+    {
+      "key": "location",
+      "label": "Project Location / Site",
+      "type": "text",
+      "required": false,
+      "section": "S02",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "J"
+    },
+    {
+      "key": "source",
+      "label": "Tender Source",
+      "type": "select",
+      "required": true,
+      "section": "S03",
+      "list": "Source",
+      "computed": false,
+      "sourceColumn": "K"
+    },
+    {
+      "key": "portalUrl",
+      "label": "Portal Name / URL",
+      "type": "text",
+      "required": false,
+      "section": "S03",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "L"
+    },
+    {
+      "key": "tenderType",
+      "label": "Tender Type",
+      "type": "select",
+      "required": true,
+      "section": "S03",
+      "list": "TenderType",
+      "computed": false,
+      "sourceColumn": "M"
+    },
+    {
+      "key": "bidSystem",
+      "label": "Bid System / Envelope",
+      "type": "select",
+      "required": true,
+      "section": "S03",
+      "list": "BidSystem",
+      "computed": false,
+      "sourceColumn": "N"
+    },
+    {
+      "key": "contractType",
+      "label": "Contract Type",
+      "type": "select",
+      "required": true,
+      "section": "S03",
+      "list": "ContractType",
+      "computed": false,
+      "sourceColumn": "O"
+    },
+    {
+      "key": "procurementMode",
+      "label": "Procurement Mode",
+      "type": "select",
+      "required": true,
+      "section": "S03",
+      "list": "ProcMode",
+      "computed": false,
+      "sourceColumn": "P"
+    },
+    {
+      "key": "publishDate",
+      "label": "Tender Publish Date",
+      "type": "date",
+      "required": true,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "Q"
+    },
+    {
+      "key": "downloadDate",
+      "label": "Doc Download Start Date",
+      "type": "date",
+      "required": false,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "R"
+    },
+    {
+      "key": "queryDeadline",
+      "label": "Pre-Bid Query Deadline",
+      "type": "date",
+      "required": false,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "S"
+    },
+    {
+      "key": "meetingDate",
+      "label": "Pre-Bid Meeting Date",
+      "type": "date",
+      "required": false,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "T"
+    },
+    {
+      "key": "visitDate",
+      "label": "Site Visit Date",
+      "type": "date",
+      "required": false,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "U"
+    },
+    {
+      "key": "submissionTime",
+      "label": "Submission Time (HH:MM)",
+      "type": "time",
+      "required": true,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "W"
+    },
+    {
+      "key": "technicalOpening",
+      "label": "Technical Bid Opening Date",
+      "type": "date",
+      "required": false,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "X"
+    },
+    {
+      "key": "financialOpening",
+      "label": "Financial Bid Opening (Tentative)",
+      "type": "date",
+      "required": false,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "Y"
+    },
+    {
+      "key": "validityDays",
+      "label": "Bid Validity (Days)",
+      "type": "number",
+      "required": true,
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "Z"
+    },
+    {
+      "key": "currency",
+      "label": "Currency",
+      "type": "select",
+      "required": true,
+      "section": "S05",
+      "list": "Currency",
+      "computed": false,
+      "sourceColumn": "AC"
+    },
+    {
+      "key": "durationMonths",
+      "label": "Contract Duration (Months)",
+      "type": "number",
+      "required": true,
+      "section": "S05",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AE"
+    },
+    {
+      "key": "documentFee",
+      "label": "Tender Document Fee",
+      "type": "number",
+      "required": false,
+      "section": "S05",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AF"
+    },
+    {
+      "key": "emdAmount",
+      "label": "EMD / Bid Security Amount",
+      "type": "number",
+      "required": true,
+      "section": "S05",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AG"
+    },
+    {
+      "key": "emdForm",
+      "label": "EMD Form",
+      "type": "select",
+      "required": true,
+      "section": "S05",
+      "list": "EMDForm",
+      "computed": false,
+      "sourceColumn": "AH"
+    },
+    {
+      "key": "performanceSecurity",
+      "label": "Performance Security (%)",
+      "type": "number",
+      "required": false,
+      "section": "S05",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AI"
+    },
+    {
+      "key": "paymentTerms",
+      "label": "Payment Terms Summary",
+      "type": "textarea",
+      "required": false,
+      "section": "S05",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AJ"
+    },
+    {
+      "key": "mobilisationAdvance",
+      "label": "Mobilisation Advance Available",
+      "type": "select",
+      "required": false,
+      "section": "S05",
+      "list": "YesNo",
+      "computed": false,
+      "sourceColumn": "AK"
+    },
+    {
+      "key": "priceVariation",
+      "label": "Price Variation Clause",
+      "type": "select",
+      "required": false,
+      "section": "S05",
+      "list": "YesNo",
+      "computed": false,
+      "sourceColumn": "AL"
+    },
+    {
+      "key": "ldTerms",
+      "label": "LD Rate & Cap",
+      "type": "text",
+      "required": false,
+      "section": "S05",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AM"
+    },
+    {
+      "key": "turnoverRequired",
+      "label": "Min. Avg. Annual Turnover Required",
+      "type": "number",
+      "required": true,
+      "section": "S06",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AN"
+    },
+    {
+      "key": "netWorthRequired",
+      "label": "Min. Net Worth Required",
+      "type": "number",
+      "required": false,
+      "section": "S06",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AO"
+    },
+    {
+      "key": "experienceRequired",
+      "label": "Similar Work Experience Required",
+      "type": "textarea",
+      "required": true,
+      "section": "S06",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AP"
+    },
+    {
+      "key": "certifications",
+      "label": "Mandatory Certifications / Licences",
+      "type": "text",
+      "required": false,
+      "section": "S06",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "AQ"
+    },
+    {
+      "key": "jvAllowed",
+      "label": "JV / Consortium Allowed",
+      "type": "select",
+      "required": true,
+      "section": "S06",
+      "list": "YesNo",
+      "computed": false,
+      "sourceColumn": "AR"
+    },
+    {
+      "key": "subcontracting",
+      "label": "Subcontracting Allowed",
+      "type": "select",
+      "required": false,
+      "section": "S06",
+      "list": "YesNo",
+      "computed": false,
+      "sourceColumn": "AS"
+    },
+    {
+      "key": "localPreference",
+      "label": "Local Content / MSE Preference",
+      "type": "select",
+      "required": false,
+      "section": "S06",
+      "list": "YesNo",
+      "computed": false,
+      "sourceColumn": "AT"
+    },
+    {
+      "key": "eligibility",
+      "label": "Eligibility Self-Assessment",
+      "type": "select",
+      "required": true,
+      "section": "S06",
+      "list": "Eligibility",
+      "computed": false,
+      "sourceColumn": "AU"
+    },
+    {
+      "key": "corrigendumCount",
+      "label": "No. of Corrigendum Issued",
+      "type": "number",
+      "required": false,
+      "section": "S07",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "BL"
+    },
+    {
+      "key": "documentCompleteness",
+      "label": "Document Completeness %",
+      "type": "number",
+      "required": false,
+      "section": "S07",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "BM"
+    },
+    {
+      "key": "score",
+      "label": "Go/No-Go Score (%)",
+      "type": "number",
+      "required": false,
+      "section": "S08",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "BN"
+    },
+    {
+      "key": "recommendation",
+      "label": "Scorecard Recommendation",
+      "type": "text",
+      "required": false,
+      "section": "S08",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "BO"
+    },
+    {
+      "key": "decisionDate",
+      "label": "Decision Date",
+      "type": "date",
+      "required": true,
+      "section": "S08",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "BQ"
+    },
+    {
+      "key": "approvedBy",
+      "label": "Decision Approved By",
+      "type": "text",
+      "required": true,
+      "section": "S08",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "BR"
+    },
+    {
+      "key": "winProbability",
+      "label": "Win Probability (%)",
+      "type": "number",
+      "required": true,
+      "section": "S08",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "BU"
+    },
+    {
+      "key": "weightedValue",
+      "label": "Weighted Pipeline Value",
+      "type": "number",
+      "required": false,
+      "section": "S08",
+      "list": null,
+      "computed": true,
+      "sourceColumn": "BV"
+    },
+    {
+      "key": "remarks",
+      "label": "Remarks",
+      "type": "textarea",
+      "required": false,
+      "section": "S08",
+      "list": null,
+      "computed": false,
+      "sourceColumn": "BX"
+    }
+  ],
+  "documents": [
+    {
+      "key": "AV",
+      "label": "NIT / Tender Notice",
+      "required": true
+    },
+    {
+      "key": "AW",
+      "label": "Scope of Work - SoW",
+      "required": true
+    },
+    {
+      "key": "AX",
+      "label": "Instruction to Bidders - ITB",
+      "required": true
+    },
+    {
+      "key": "AY",
+      "label": "Special Conditions of Contract - SCC",
+      "required": true
+    },
+    {
+      "key": "AZ",
+      "label": "General Conditions of Contract - GCC",
+      "required": true
+    },
+    {
+      "key": "BA",
+      "label": "Technical Specifications",
+      "required": true
+    },
+    {
+      "key": "BB",
+      "label": "BOQ / Price Schedule",
+      "required": true
+    },
+    {
+      "key": "BC",
+      "label": "Drawings / Site Layouts",
+      "required": false
+    },
+    {
+      "key": "BD",
+      "label": "Qualification & Evaluation Criteria",
+      "required": true
+    },
+    {
+      "key": "BE",
+      "label": "Bid Forms & Formats",
+      "required": true
+    },
+    {
+      "key": "BF",
+      "label": "Draft Contract Agreement",
+      "required": false
+    },
+    {
+      "key": "BG",
+      "label": "Integrity Pact / NDA",
+      "required": false
+    },
+    {
+      "key": "BH",
+      "label": "Corrigendum / Addendum",
+      "required": false
+    },
+    {
+      "key": "BI",
+      "label": "Pre-Bid Minutes / Clarifications",
+      "required": false
+    },
+    {
+      "key": "BJ",
+      "label": "Site Visit Report",
+      "required": false
+    },
+    {
+      "key": "BK",
+      "label": "Tender Fee Payment Receipt",
+      "required": false
+    }
+  ]
+}
