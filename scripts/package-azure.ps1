@@ -9,7 +9,7 @@ try {
     $outputDirectory = Join-Path $workspacePath '.local'
     New-Item -ItemType Directory -Path $outputDirectory -Force | Out-Null
     $archivePath = Join-Path $outputDirectory 'tender-azure.zip'
-    $sourceFiles = @('package.json', 'package-lock.json', 'index.html', 'vite.config.mjs', 'server.mjs', 'db.mjs', 'auth-oidc.mjs', 'portal-import.mjs', 'runtime-config.mjs', 'schema.sql', 'src', 'dist')
+    $sourceFiles = @('package.json', 'package-lock.json', 'index.html', 'vite.config.mjs', 'server.mjs', 'db.mjs', 'auth-oidc.mjs', 'portal-import.mjs', 'form-import.mjs', 'runtime-config.mjs', 'schema.sql', 'src', 'dist')
     Compress-Archive -LiteralPath $sourceFiles -DestinationPath $archivePath -Force
     Write-Output "Deployment package: $archivePath"
 } finally { Pop-Location }

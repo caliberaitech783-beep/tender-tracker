@@ -12,6 +12,8 @@ The first administrator login is saved in **.local/initial-login.txt**. The emai
 
 ## Development
 
+On **Register a new tender**, select **Import from Excel** and upload a completed `tender-import-template.xlsx` or CSV with the same headers. One tender row fills the form directly; multiple rows open a chooser. Non-empty imported values replace current fields, while blank cells keep current values. Dates should use Excel dates or `YYYY-MM-DD`, and times should use Excel times or `HH:MM`. Invalid options are skipped with warnings. Review the form, then save a draft or register normally. Importing does not save a tender, upload documents, or approve a Go / No-Go decision.
+
 Requires Node.js 22+ on Windows x64. Installed on this machine during setup.
 
 ```powershell
