@@ -33,3 +33,5 @@ ALTER TABLE users ADD COLUMN IF NOT EXISTS contact_email text;
 ALTER TABLE sessions ADD COLUMN IF NOT EXISTS credential_version text;
 
 ALTER TABLE users ADD COLUMN IF NOT EXISTS tender_permissions jsonb;
+
+ALTER TABLE sessions ADD COLUMN IF NOT EXISTS bdms_session_id text;

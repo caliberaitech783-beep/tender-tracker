@@ -10,6 +10,6 @@ test('BDMS projection is keyed by immutable ID and never stores credentials',asy
 test('BDMS mode blocks local account, password, restore and SSO bypasses',async()=>{
  const server=await readFile(new URL('../server.mjs',import.meta.url),'utf8'),oidc=await readFile(new URL('../auth-oidc.mjs',import.meta.url),'utf8');
  for(const endpoint of ['/api/password','/api/admin/users'])assert.ok(server.includes(`app.post('${endpoint}',async(req,res)=>{if(bdmsEnabled())throw fail(403,`));
- assert.match(server,/if\(!user.bdms_id\|\|!user.credential_version\)throw fail\(401/);
+ assert.match(server,/if\(!user.bdms_id\|\|!user.credential_version\|\|!user.bdms_session_id\)throw fail\(401/);
  assert.match(oidc,/IDENTITY_PROVIDER==='bdms'\)return res.sendStatus\(403\)/);
 });

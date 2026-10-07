@@ -11,6 +11,7 @@ export async function identityRequest(action,body){
  const data=await response.json();
  if(!response.ok)throw Object.assign(new Error(data.error||'BDMS access verification failed.'),{status:[401,403].includes(response.status)?response.status:503});
  const valid=p=>/^\d+$/.test(p?.id)&&Array.isArray(p.roles)&&p.roles.length&&p.roles.every(r=>ROLES.includes(r));
+ if(action==='logout')return data;
  if(action==='directory'?(!Array.isArray(data)||!data.every(valid)):(!valid(data)||!data.credentialVersion))throw Object.assign(new Error('BDMS returned an invalid access profile.'),{status:503});
  return data;
 }
