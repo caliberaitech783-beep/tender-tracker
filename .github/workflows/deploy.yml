@@ -16,6 +16,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,3 +35,13 @@ jobs:
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
       - name: Deploy application
         run: az webapp deploy --resource-group coalmine-fleet-maintenance-rg --name tender-tracker-783 --type zip --src-path tender.zip --async true
+      - name: Verify public database health
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error --max-time 10 https://tender.cmll.in/api/health > health.json; then
+              node -e "const h = require('./health.json'); if (h.status !== 'ok' || h.database !== 'PostgreSQL') process.exit(1);"
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
