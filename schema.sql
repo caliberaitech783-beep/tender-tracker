@@ -31,3 +31,5 @@ ALTER TABLE users ADD COLUMN IF NOT EXISTS bdms_id text UNIQUE;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS bdms_login text;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS contact_email text;
 ALTER TABLE sessions ADD COLUMN IF NOT EXISTS credential_version text;
+
+ALTER TABLE users ADD COLUMN IF NOT EXISTS tender_permissions jsonb;

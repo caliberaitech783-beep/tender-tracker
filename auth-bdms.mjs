@@ -21,8 +21,8 @@ export async function syncDirectory(pool){
 }
 export async function projectIdentity(pool,profile){
  // The immutable BDMS master ID owns the projection; email never links accounts.
- return (await pool.query(`INSERT INTO users(id,name,email,password_hash,roles,business_unit,active,phone,bdms_id,bdms_login,contact_email)
- VALUES($1,$2,$3,'!bdms-managed!',$4,$5,true,$6,$7,$8,$9)
- ON CONFLICT(bdms_id) DO UPDATE SET name=EXCLUDED.name,roles=EXCLUDED.roles,business_unit=EXCLUDED.business_unit,active=true,phone=EXCLUDED.phone,bdms_login=EXCLUDED.bdms_login,contact_email=EXCLUDED.contact_email RETURNING *`,
- [randomUUID(),profile.name||profile.login,`bdms-${profile.id}@identity.internal`,JSON.stringify(profile.roles),profile.businessUnit||null,profile.phone||null,profile.id,profile.login,profile.email||null])).rows[0];
+ return (await pool.query(`INSERT INTO users(id,name,email,password_hash,roles,business_unit,active,phone,bdms_id,bdms_login,contact_email,tender_permissions)
+ VALUES($1,$2,$3,'!bdms-managed!',$4,$5,true,$6,$7,$8,$9,$10)
+ ON CONFLICT(bdms_id) DO UPDATE SET name=EXCLUDED.name,roles=EXCLUDED.roles,business_unit=EXCLUDED.business_unit,active=true,phone=EXCLUDED.phone,bdms_login=EXCLUDED.bdms_login,contact_email=EXCLUDED.contact_email,tender_permissions=EXCLUDED.tender_permissions RETURNING *`,
+ [randomUUID(),profile.name||profile.login,`bdms-${profile.id}@identity.internal`,JSON.stringify(profile.roles),profile.businessUnit||null,profile.phone||null,profile.id,profile.login,profile.email||null,profile.tenderPermissions?JSON.stringify(profile.tenderPermissions):null])).rows[0];
 }
