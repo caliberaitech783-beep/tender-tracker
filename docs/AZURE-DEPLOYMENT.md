@@ -29,7 +29,7 @@ Hostinger DNS records:
 
 Front Door manages the TLS certificate, redirects HTTP to HTTPS, forwards to the origin over HTTPS, and has caching disabled. The existing WAF policy also protects Tender Tracker. The origin accepts only the configured Front Door instance. PostgreSQL public networking remains disabled; the app uses the existing VNet integration to reach the private server.
 
-Use a separate App Service application and a separate PostgreSQL database and database login. Reuse the existing Linux App Service plan, PostgreSQL server, and Front Door profile where capacity permits. Do not change the BDMS/Pulse application, database, or routes.
+Tender uses a separate App Service, PostgreSQL database and database login. Identity is delegated to the BDMS/Pulse user master through its scoped Tender integration API; Tender never receives BDMS database credentials or password hashes.
 
 ## Application configuration
 
@@ -45,6 +45,9 @@ Set the following App Service environment variables:
 | TENDER_STATE_DIR | /home/tender/state |
 | TENDER_DOCUMENTS_DIR | /home/tender/documents |
 | DATABASE_URL | Secret connection URL for the separate `tender_tracker` database, using TLS certificate verification |
+| IDENTITY_PROVIDER | bdms |
+| BDMS_IDENTITY_URL | https://pulse.cmll.in |
+| BDMS_IDENTITY_KEY | Random service secret, matching BDMS `TENDER_IDENTITY_KEY`; configure in App Service only |
 
 App Service supplies `PORT`. Keep credentials in App Service settings. `.local`, local backup files, documents, and environment files are excluded from the deployment package.
 
@@ -56,7 +59,15 @@ Documents must remain under the persistent directory outside the deployed source
 
 The existing PostgreSQL server retains its automatic backups for 35 days. The P2v3 App Service tier supports automatic hourly content snapshots with 30-day retention, including `/home` document storage; a newly created application may have no snapshot until the first scheduled backup. Check the app's Backups blade before relying on a specific restore point. Database recovery uses PostgreSQL's own backup service separately from App Service content snapshots. The application's administrator backup export is an additional portable copy of its database records and documents.
 
-The administrator's display name is `Admin`, and its existing local password hash was migrated without modification. Local sessions were excluded. Sign in with the same credentials used locally.
+## BDMS users and privileges
+
+In BDMS/Pulse, open Masters → Users & employees → Add/Edit → Tender application. Enable **Allow Tender login**, select one or more Tender roles, and optionally enter a Tender business unit code. A blank scope allows all business units; System Administrator has workspace-wide access. Existing users receive no Tender access automatically, including BDMS administrators. Complete any required initial password change in BDMS first.
+
+Sign in separately at `https://tender.cmll.in` using the existing BDMS user name and password. BDMS remains the only account, password and Tender role administration interface. Each account links through its immutable BDMS master record ID, with a local UUID projection retaining Tender document, ownership and audit foreign keys. Email never links existing accounts.
+
+Each authenticated Tender request validates the account's current access and password version against BDMS. Revocation, deletion, deactivation and password changes invalidate existing sessions; role and business-unit changes apply immediately on the next request. BDMS outages fail closed. The authenticated directory refreshes on bootstrap so newly entitled users can be selected as owners before their first Tender login. No BDMS password hash is copied to Tender. Local accounts, OIDC callbacks, password changes and user administration cannot bypass BDMS mode. In-app backup restore is blocked in this mode to preserve identity mappings; an administrator must perform a controlled database/file restore.
+
+BDMS exposes service-authenticated POST endpoints under `/api/integrations/tender/` for `authenticate`, `validate` and `directory`. Configure the same random service key in BDMS production and staging App Service settings so slot swaps retain the bridge. Do not publish the key or expose it to browser code.
 
 ## Routing and verification
 
