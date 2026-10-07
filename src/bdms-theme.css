@@ -31,3 +31,14 @@ h1,h2,h3,h4,.count-chip{font-family:Calibri,Carlito,'Segoe UI',sans-serif}.modal
 }
 
 @media(min-width:768px) and (max-width:900px){.sidebar nav a{font-size:9px;padding:9px 2px}.sidebar{gap:4px}.sidebar .brand{font-size:13px}}
+
+@media(min-width:768px){
+.sidebar nav:first-of-type{margin-left:0;flex:1 1 auto;justify-content:center}
+.sidebar nav a{height:40px;line-height:20px;justify-content:center}
+.sidebar nav a b{margin-left:2px;line-height:14px}
+.sidebar nav a.notification-nav{min-width:40px;padding:10px}
+.sidebar nav a.notification-nav svg{width:18px;height:18px}
+}
+@media(min-width:1101px){.sidebar{padding-left:32px;padding-right:32px}.sidebar nav,.sidebar nav:first-of-type,.sidebar nav:last-of-type{gap:6px}.sidebar nav a{padding-left:8px;padding-right:8px}}
+
+@media(min-width:768px) and (max-width:900px){.sidebar .brand small{display:none}.sidebar .pulse-logo{width:24px;height:24px}.sidebar nav a.notification-nav{min-width:32px;padding:6px}}
