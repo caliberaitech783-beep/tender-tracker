@@ -1,6 +1,6 @@
 # Tender Tracker
 
-Local tender management built with the same core stack as BDMS: React/Vite, Express/Node.js and PostgreSQL.
+Caliber Pulse Tender workspace, built with React/Vite, Express/Node.js and PostgreSQL. Production: https://tender.cmll.in.
 
 ## Open the app
 
@@ -8,7 +8,11 @@ Local tender management built with the same core stack as BDMS: React/Vite, Expr
 
 Double-click **Start Tender Tracker.cmd** to start it after a restart. It starts the server in the background without a terminal window. The startup script installs locked dependencies and builds the frontend if they are missing.
 
-The first administrator login is saved in **.local/initial-login.txt**. The email is `admin@tender.local`. The password is randomly generated once; startup never resets existing passwords. Use the profile avatar to change your password.
+**BDMS-managed deployment:** sign in with the BDMS user name and password. Accounts, password changes and per-user Tender permissions are managed through the BDMS user master. Select Tender User and customise its desktop/mobile menus and submenus. The header provides Logout, Go to BDMS login, and Logout and go to BDMS login.
+
+Tender sessions appear in BDMS User sessions as Tender User, including device/IP details, online status and login history. Administrators can send session messages or force-close access. Sessions have the same 30-day absolute lifetime as BDMS; inactivity does not sign users out. Existing Tender sessions created before central session tracking require one fresh sign-in. Logout closes the current Tender session while keeping separately signed-in BDMS sessions available.
+
+**Standalone configuration:** the generated initial administrator login is saved in `.local/initial-login.txt`. This account and local password changes are disabled when `IDENTITY_PROVIDER=bdms`.
 
 ## Development
 

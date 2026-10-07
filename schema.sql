@@ -26,3 +26,12 @@ ALTER TABLE masters ADD COLUMN IF NOT EXISTS code text;
 UPDATE masters SET code=value WHERE code IS NULL;
 ALTER TABLE masters ALTER COLUMN code SET NOT NULL;
 CREATE UNIQUE INDEX IF NOT EXISTS master_codes ON masters(list,code);
+
+ALTER TABLE users ADD COLUMN IF NOT EXISTS bdms_id text UNIQUE;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS bdms_login text;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS contact_email text;
+ALTER TABLE sessions ADD COLUMN IF NOT EXISTS credential_version text;
+
+ALTER TABLE users ADD COLUMN IF NOT EXISTS tender_permissions jsonb;
+
+ALTER TABLE sessions ADD COLUMN IF NOT EXISTS bdms_session_id text;

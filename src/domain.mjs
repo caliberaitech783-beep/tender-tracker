@@ -1,3 +1,4 @@
+import {tenderAllowed} from './tender-permissions.mjs';
 export const ROLES=['BD Executive','Bid Manager','Document Controller','Estimation','Technical','Legal','Finance / Treasury','BU Head','Bid Committee / Director','System Administrator'];
 const f=(key,label,type='text',list=null,required=false)=>({key,label,type,list,required});
 export const MODULES={
@@ -14,13 +15,14 @@ export const MODULES={
 export const SECTION_LABELS={S00:'Main details',S01:'Tender reference & client',S02:'Project location',S03:'Source & procurement',S04:'Dates & deadlines',S05:'Commercial & financial terms',S06:'Eligibility',S07:'Documents',S08:'Decision & ownership'};
 export const DEFAULT_SETTINGS={urgentDays:7,criticalDays:3,dangerHours:24,finalHours:6,instrumentReminderDays:14,reminderOffsets:[10080,4320,1440,360],timezone:'Asia/Kolkata',requiredRegistrationFields:['tenderId','title','client','clientRef','clientType','sector','businessUnit','publishDate','deadline','submissionTime','validityDays','currency','estimatedValue','durationMonths','emdAmount','emdForm','source','tenderType','owner','priority','goDecision','region','location','portalUrl','queryDeadline','meetingDate','visitDate','technicalOpening','documentFee','performanceSecurity','turnoverRequired','experienceRequired','jvAllowed','eligibility'],requireDocuments:true,scoreWeights:{strategicFit:20,eligibilityScore:20,technicalCapability:20,financialCapacity:15,competitiveness:15,riskScore:10},scoreGo:70,scoreHold:50,notificationRecipients:{10080:['Bid Manager'],4320:['Bid Manager','BU Head'],1440:['Bid Manager','BU Head','Document Controller'],360:['Bid Manager','BU Head']},approvers:{scorecard:['Bid Committee / Director'],submission:['BU Head'],award:['BU Head'],unlock:['BU Head'],checklist:['Bid Manager'],registration:['BU Head']},permissions:{}};
 export function permitted(user,module,action='write',settings=DEFAULT_SETTINGS){
+ if(user?.tenderPermissions)return tenderAllowed(user,module,action);
  if(user?.roles?.includes('System Administrator'))return true;
  const overrides=settings.permissions?.[module]?.[action];
  const roles=overrides||(action==='approve'?settings.approvers?.[module]||MODULES[module]?.approvers:MODULES[module]?.roles)||(module==='documents'?['BD Executive','Document Controller']:module==='overview'||module==='registration'?['BD Executive','Bid Manager']:[]);
  return roles.some(r=>user?.roles?.includes(r));
 }
 export const pricingFields=['costEstimate','quotedPrice','margin','negotiatedPrice'];
-export const canSeePricing=user=>user?.roles?.some(r=>['System Administrator','Bid Manager','Estimation','BU Head','Bid Committee / Director'].includes(r));
+export const canSeePricing=user=>user?.tenderPermissions?tenderAllowed(user,'pricing.read'):user?.roles?.some(r=>['System Administrator','Bid Manager','Estimation','BU Head','Bid Committee / Director'].includes(r));
 export function deadlineUtc(data){if(!data.deadline)return null;const time=data.submissionTime||'23:59';const date=new Date(`${data.deadline}T${time}:00Z`);const zone=data.timezone||'Asia/Kolkata';let utc=date.getTime();for(let i=0;i<3;i++){const parts=new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(utc));const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));const local=Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute,+p.second);utc+=date.getTime()-local;}return new Date(utc);}
 export function classify(tender,records=[],settings=DEFAULT_SETTINGS,now=new Date()){
  const d=tender.data||tender;const sub=records.find(r=>r.module==='submission')?.data||{};const evaluation=records.find(r=>r.module==='evaluation')?.data||{};const award=records.find(r=>r.module==='award')?.data||{};
