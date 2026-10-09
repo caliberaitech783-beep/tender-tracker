@@ -27,7 +27,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Package application
-        run: zip -r tender.zip package.json package-lock.json index.html vite.config.mjs server.mjs db.mjs auth-bdms.mjs auth-oidc.mjs portal-import.mjs runtime-config.mjs schema.sql src public dist
+        run: zip -r tender.zip package.json package-lock.json index.html vite.config.mjs server.mjs db.mjs auth-bdms.mjs auth-oidc.mjs portal-import.mjs tender-import.mjs runtime-config.mjs schema.sql src public dist
       - uses: azure/login@v3
         with:
           client-id: ${{ vars.AZURE_CLIENT_ID }}

@@ -16,6 +16,10 @@ Tender sessions appear in BDMS User sessions as Tender User, including device/IP
 
 ## Development
 
+New tender offers **New form** and **Upload Excel**. Users with tender creation access can download the Excel template, validate up to 1,000 rows, and import valid rows as drafts. Imported drafts appear in Tender pipeline immediately for the uploader. Complete the required details and documents before registration. The template's Master values sheet contains the codes accepted by the importer. Blank owner and business-unit values inherit the uploading user's profile.
+
+Status views are available as tabs above the tender list. Administration requires an administrator role on both the client and server. The companion BDMS integration in `../bdms-tender-integration/tender-identity.mjs` grants BDMS/Pulse Admin and Super Admin accounts Tender administration through the existing credentials, while regular Tender Users retain their individual permissions. Deploy both applications together to apply this identity change in production.
+
 Requires Node.js 22+ on Windows x64. Installed on this machine during setup.
 
 ```powershell

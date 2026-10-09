@@ -61,7 +61,7 @@ The existing PostgreSQL server retains its automatic backups for 35 days. The P2
 
 ## BDMS users and privileges
 
-In BDMS/Pulse, open Masters → Users & employees → Add/Edit → Tender application. Enable **Allow Tender login**, select one or more Tender roles, and optionally enter a Tender business unit code. A blank scope allows all business units; System Administrator has workspace-wide access. Existing users receive no Tender access automatically, including BDMS administrators. Complete any required initial password change in BDMS first.
+In BDMS/Pulse, open Masters → Users & employees → Add/Edit → Tender application. Enable **Allow Tender login**, select one or more Tender roles, and optionally enter a Tender business unit code. A blank scope allows all business units; System Administrator has workspace-wide access. BDMS/Pulse Admin and Super Admin accounts automatically receive Tender administration using the same credentials. Managers and regular Tender Users retain their assigned Tender access. Deploy the companion tender-identity.mjs change in bdms-tender-integration alongside this app. Complete any required initial password change in BDMS first.
 
 Sign in separately at `https://tender.cmll.in` using the existing BDMS user name and password. BDMS remains the only account, password and Tender role administration interface. Each account links through its immutable BDMS master record ID, with a local UUID projection retaining Tender document, ownership and audit foreign keys. Email never links existing accounts.
 
