@@ -1,0 +1,17 @@
+.table-export{display:flex;justify-content:flex-end;padding:10px 16px;border-top:1px solid var(--line);background:var(--surface,#fff);position:relative;z-index:25}
+.table-export-menu{position:relative}
+.table-export-trigger{display:inline-flex;align-items:center;gap:4px;min-height:42px;padding:9px 13px;border:1px solid #d6b7ef;border-radius:0;background:#6736c6;color:#fff;font-size:14px;font-weight:700;white-space:nowrap}
+.table-export-trigger svg:first-child{margin-right:-3px}
+.table-export-trigger svg:last-child{width:14px;height:14px}
+.table-export-trigger:hover,.table-export-trigger[aria-expanded=true]{background:#5728b4;border-color:#fff}
+.table-export-options{position:absolute;top:calc(100% + 7px);right:0;width:200px;background:var(--surface,#fff);border:1px solid var(--line,#dce4df);border-radius:11px;box-shadow:0 12px 30px #25143b28;overflow:hidden;z-index:80}
+.table-export-options[hidden]{display:none}
+.table-export-options button{display:flex;align-items:center;gap:11px;width:100%;padding:14px 18px;border:0;border-bottom:1px solid var(--line,#edf1ed);background:var(--surface,#fff);color:var(--ink,#263c42);text-align:left;font-size:14px;font-weight:600}
+.table-export-options button:last-child{border-bottom:0}
+.table-export-options button:hover{background:var(--soft,#f3f7f3)}
+.table-export-options button svg{color:#355376;flex:none}
+.table-export-inline{display:inline-flex;padding:0;border:0;background:transparent}
+.print-frame{position:fixed;width:1px;height:1px;right:0;bottom:0;border:0;opacity:0;pointer-events:none}
+details>.table-export{padding:7px 10px;background:#fbfcf9}
+@media(max-width:767px){.table-export{padding:9px 12px}.table-export-trigger{font-size:10px}.table-export-options{width:190px}}
+@media print{.table-export,.print-frame{display:none!important}}

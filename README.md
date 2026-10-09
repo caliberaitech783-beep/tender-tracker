@@ -20,6 +20,8 @@ New tender offers **New form** and **Upload Excel**. Users with tender creation 
 
 Status views are available as tabs above the tender list. Administration requires an administrator role on both the client and server. The companion BDMS integration in `../bdms-tender-integration/tender-identity.mjs` grants BDMS/Pulse Admin and Super Admin accounts Tender administration through the existing credentials, while regular Tender Users retain their individual permissions. Deploy both applications together to apply this identity change in production.
 
+On **Register a new tender**, select **Import Excel / CSV** and upload a completed `tender-import-template.xlsx` or CSV with the same headers. One tender row fills the form directly; multiple rows open a chooser. Non-empty imported values replace current fields, while blank cells keep current values. Dates should use Excel dates or `YYYY-MM-DD`, and times should use Excel times or `HH:MM`. Invalid options are skipped with warnings. Review the form, then save a draft or register normally. Importing does not save a tender, upload documents, or approve a Go / No-Go decision.
+
 Requires Node.js 22+ on Windows x64. Installed on this machine during setup.
 
 ```powershell
