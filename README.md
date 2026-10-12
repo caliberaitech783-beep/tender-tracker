@@ -22,6 +22,8 @@ Status views are available as tabs above the tender list. Administration require
 
 On **Register a new tender**, select **Import Excel / CSV** and upload a completed `tender-import-template.xlsx` or CSV with the same headers. One tender row fills the form directly; multiple rows open a chooser. Non-empty imported values replace current fields, while blank cells keep current values. Dates should use Excel dates or `YYYY-MM-DD`, and times should use Excel times or `HH:MM`. Invalid options are skipped with warnings. Review the form, then save a draft or register normally. Importing does not save a tender, upload documents, or approve a Go / No-Go decision.
 
+The registration form follows the 30 columns in `new tender format.xlsx`, in order. Tender types are OB, Logistics and MDO. Document fee, average turnover, net worth and similar-work experience are optional. Publish time and submission time are separate fields; working capital and corrigendum details are stored with the tender. Form import recognizes the supplied workbook's row-four headings and skips its guidance row. Hidden legacy fields remain stored for existing tenders; required-field checks apply only to fields shown in the current form. Assigned business units and the tender time zone are retained automatically.
+
 Requires Node.js 22+ on Windows x64. Installed on this machine during setup.
 
 ```powershell

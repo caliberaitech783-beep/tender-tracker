@@ -1,5 +1,6 @@
 import ExcelJS from 'exceljs';
 import {Readable} from 'node:stream';
+import {REGISTRATION_COLUMNS} from './src/registration-format.mjs';
 
 const invalid=message=>Object.assign(new Error(message),{status:422});
 const normalize=value=>String(value??'').trim().toLowerCase();
@@ -20,13 +21,28 @@ export async function readFormImport(buffer,filename,fields,masters=[],users=[])
  const sheet=workbook.getWorksheet('Tenders')||workbook.worksheets[0];
  if(!sheet)throw invalid('The workbook has no worksheets.');
  const editable=fields.filter(f=>!f.computed&&!['decisionDate','approvedBy'].includes(f.key));
- const headers=sheet.getRow(1).values.slice(1).map(cellValue);
- const mapped=headers.map(h=>editable.find(f=>normalize(f.key)===normalize(h)||normalize(f.label)===normalize(h)));
- if(!mapped.some(f=>f?.key==='tenderId'))throw invalid('The first row must contain the tenderId template header.');
+ let headerRow=0,headers=[];
+ for(let row=1;row<=Math.min(sheet.rowCount,20);row++){
+  const values=sheet.getRow(row).values.slice(1).map(cellValue);
+  if(values.some(h=>['tenderid','tender id'].includes(normalize(h)))){headerRow=row;headers=values;break;}
+ }
+ if(!headerRow)throw invalid('Include the Tender ID template header in the first 20 rows.');
+ let precedingField;
+ const mapped=headers.map(h=>{
+  if(!normalize(h))return undefined;
+  let field;
+  if(normalize(h)==='time')field=editable.find(f=>f.key===(precedingField==='publishDate'?'publishTime':precedingField==='deadline'?'submissionTime':''));
+  else field=editable.find(f=>[f.key,f.label,...(f.aliases||[]),REGISTRATION_COLUMNS.find(([key])=>key===f.key)?.[1]].some(label=>normalize(label)===normalize(h)));
+  if(field)precedingField=field.key;
+  return field;
+ });
  const keys=mapped.filter(Boolean).map(f=>f.key);
  if(new Set(keys).size!==keys.length)throw invalid('The workbook contains duplicate field columns.');
  const rows=[];
- for(let row=2;row<=sheet.rowCount;row++){
+ for(let row=headerRow+1;row<=sheet.rowCount;row++){
+  // The supplied format has a guidance row below its headings, not tender data.
+  const raw=sheet.getRow(row);
+  if(!mapped.some((field,i)=>['tenderId','title','client','clientRef'].includes(field?.key)&&raw.getCell(i+1).value!==null&&String(raw.getCell(i+1).value).trim()!==''))continue;
   const data={},warnings=[];
   mapped.forEach((field,i)=>{
    if(!field)return;

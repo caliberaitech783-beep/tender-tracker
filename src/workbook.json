@@ -49,7 +49,10 @@
       "Request for Proposal (RFP)",
       "Request for Quotation",
       "Two-Stage Tender",
-      "Global Tender"
+      "Global Tender",
+      "OB",
+      "Logistics",
+      "MDO"
     ],
     "BidSystem": [
       "Single Envelope",
@@ -305,7 +308,10 @@
       "section": "S00",
       "list": null,
       "computed": false,
-      "sourceColumn": "A"
+      "sourceColumn": "A",
+      "aliases": [
+        "Tender ID"
+      ]
     },
     {
       "key": "title",
@@ -315,7 +321,10 @@
       "section": "S00",
       "list": null,
       "computed": false,
-      "sourceColumn": "C"
+      "sourceColumn": "C",
+      "aliases": [
+        "Tender Title / Description"
+      ]
     },
     {
       "key": "client",
@@ -325,7 +334,10 @@
       "section": "S00",
       "list": null,
       "computed": false,
-      "sourceColumn": "D"
+      "sourceColumn": "D",
+      "aliases": [
+        "Client / Issuing Authority"
+      ]
     },
     {
       "key": "deadline",
@@ -335,7 +347,10 @@
       "section": "S00",
       "list": null,
       "computed": false,
-      "sourceColumn": "V"
+      "sourceColumn": "V",
+      "aliases": [
+        "Bid Submission Deadline"
+      ]
     },
     {
       "key": "daysRemaining",
@@ -365,17 +380,23 @@
       "section": "S00",
       "list": null,
       "computed": false,
-      "sourceColumn": "AD"
+      "sourceColumn": "AD",
+      "aliases": [
+        "Estimated Contract Value"
+      ]
     },
     {
       "key": "goDecision",
-      "label": "Go / No-Go Decision",
+      "label": "Go No Go decision",
       "type": "select",
       "required": true,
       "section": "S00",
       "list": "GoDecision",
       "computed": false,
-      "sourceColumn": "BP"
+      "sourceColumn": "BP",
+      "aliases": [
+        "Go / No-Go Decision"
+      ]
     },
     {
       "key": "pipelineStatus",
@@ -385,17 +406,23 @@
       "section": "S00",
       "list": "PipelineStatus",
       "computed": false,
-      "sourceColumn": "BW"
+      "sourceColumn": "BW",
+      "aliases": [
+        "Pipeline Status"
+      ]
     },
     {
       "key": "owner",
-      "label": "Bid Manager / Owner",
+      "label": "Bid Manager/Owner",
       "type": "user",
       "required": true,
       "section": "S00",
       "list": null,
       "computed": false,
-      "sourceColumn": "BS"
+      "sourceColumn": "BS",
+      "aliases": [
+        "Bid Manager / Owner"
+      ]
     },
     {
       "key": "priority",
@@ -415,7 +442,10 @@
       "section": "S01",
       "list": null,
       "computed": false,
-      "sourceColumn": "B"
+      "sourceColumn": "B",
+      "aliases": [
+        "Client Tender Ref. No."
+      ]
     },
     {
       "key": "clientType",
@@ -469,13 +499,16 @@
     },
     {
       "key": "location",
-      "label": "Project Location / Site",
+      "label": "Location",
       "type": "text",
       "required": false,
       "section": "S02",
       "list": null,
       "computed": false,
-      "sourceColumn": "J"
+      "sourceColumn": "J",
+      "aliases": [
+        "Project Location / Site"
+      ]
     },
     {
       "key": "source",
@@ -489,13 +522,16 @@
     },
     {
       "key": "portalUrl",
-      "label": "Portal Name / URL",
+      "label": "Portal URL",
       "type": "text",
       "required": false,
       "section": "S03",
       "list": null,
       "computed": false,
-      "sourceColumn": "L"
+      "sourceColumn": "L",
+      "aliases": [
+        "Portal Name / URL"
+      ]
     },
     {
       "key": "tenderType",
@@ -505,7 +541,10 @@
       "section": "S03",
       "list": "TenderType",
       "computed": false,
-      "sourceColumn": "M"
+      "sourceColumn": "M",
+      "aliases": [
+        "Tender Type"
+      ]
     },
     {
       "key": "bidSystem",
@@ -545,7 +584,10 @@
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "Q"
+      "sourceColumn": "Q",
+      "aliases": [
+        "Tender Publish Date"
+      ]
     },
     {
       "key": "downloadDate",
@@ -565,17 +607,23 @@
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "S"
+      "sourceColumn": "S",
+      "aliases": [
+        "Pre-Bid Query Deadline"
+      ]
     },
     {
       "key": "meetingDate",
-      "label": "Pre-Bid Meeting Date",
+      "label": "Pre-Bid Date",
       "type": "date",
       "required": false,
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "T"
+      "sourceColumn": "T",
+      "aliases": [
+        "Pre-Bid Meeting Date"
+      ]
     },
     {
       "key": "visitDate",
@@ -585,27 +633,36 @@
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "U"
+      "sourceColumn": "U",
+      "aliases": [
+        "Site Visit Date"
+      ]
     },
     {
       "key": "submissionTime",
-      "label": "Submission Time (HH:MM)",
+      "label": "Time",
       "type": "time",
       "required": true,
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "W"
+      "sourceColumn": "W",
+      "aliases": [
+        "Submission Time (HH:MM)"
+      ]
     },
     {
       "key": "technicalOpening",
-      "label": "Technical Bid Opening Date",
+      "label": "Bid Opening Date",
       "type": "date",
       "required": false,
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "X"
+      "sourceColumn": "X",
+      "aliases": [
+        "Technical Bid Opening Date"
+      ]
     },
     {
       "key": "financialOpening",
@@ -619,13 +676,16 @@
     },
     {
       "key": "validityDays",
-      "label": "Bid Validity (Days)",
+      "label": "Bid Validity",
       "type": "number",
       "required": true,
       "section": "S04",
       "list": null,
       "computed": false,
-      "sourceColumn": "Z"
+      "sourceColumn": "Z",
+      "aliases": [
+        "Bid Validity (Days)"
+      ]
     },
     {
       "key": "currency",
@@ -639,23 +699,29 @@
     },
     {
       "key": "durationMonths",
-      "label": "Contract Duration (Months)",
+      "label": "Contract Duration",
       "type": "number",
       "required": true,
       "section": "S05",
       "list": null,
       "computed": false,
-      "sourceColumn": "AE"
+      "sourceColumn": "AE",
+      "aliases": [
+        "Contract Duration (Months)"
+      ]
     },
     {
       "key": "documentFee",
-      "label": "Tender Document Fee",
+      "label": "Tender Document Fee (Not mandatory for every tenders)",
       "type": "number",
       "required": false,
       "section": "S05",
       "list": null,
       "computed": false,
-      "sourceColumn": "AF"
+      "sourceColumn": "AF",
+      "aliases": [
+        "Tender Document Fee"
+      ]
     },
     {
       "key": "emdAmount",
@@ -665,7 +731,10 @@
       "section": "S05",
       "list": null,
       "computed": false,
-      "sourceColumn": "AG"
+      "sourceColumn": "AG",
+      "aliases": [
+        "EMD / Bid Security Amount"
+      ]
     },
     {
       "key": "emdForm",
@@ -685,7 +754,10 @@
       "section": "S05",
       "list": null,
       "computed": false,
-      "sourceColumn": "AI"
+      "sourceColumn": "AI",
+      "aliases": [
+        "Performance Security (%)"
+      ]
     },
     {
       "key": "paymentTerms",
@@ -729,13 +801,16 @@
     },
     {
       "key": "turnoverRequired",
-      "label": "Min. Avg. Annual Turnover Required",
+      "label": "Average Turnover",
       "type": "number",
       "required": true,
       "section": "S06",
       "list": null,
       "computed": false,
-      "sourceColumn": "AN"
+      "sourceColumn": "AN",
+      "aliases": [
+        "Min. Avg. Annual Turnover Required"
+      ]
     },
     {
       "key": "netWorthRequired",
@@ -745,7 +820,10 @@
       "section": "S06",
       "list": null,
       "computed": false,
-      "sourceColumn": "AO"
+      "sourceColumn": "AO",
+      "aliases": [
+        "Min. Net Worth Required"
+      ]
     },
     {
       "key": "experienceRequired",
@@ -755,7 +833,10 @@
       "section": "S06",
       "list": null,
       "computed": false,
-      "sourceColumn": "AP"
+      "sourceColumn": "AP",
+      "aliases": [
+        "Similar Work Experience Required"
+      ]
     },
     {
       "key": "certifications",
@@ -775,7 +856,10 @@
       "section": "S06",
       "list": "YesNo",
       "computed": false,
-      "sourceColumn": "AR"
+      "sourceColumn": "AR",
+      "aliases": [
+        "JV / Consortium Allowed"
+      ]
     },
     {
       "key": "subcontracting",
@@ -896,6 +980,42 @@
       "list": null,
       "computed": false,
       "sourceColumn": "BX"
+    },
+    {
+      "key": "publishTime",
+      "label": "Time",
+      "type": "time",
+      "section": "S04",
+      "list": null,
+      "computed": false,
+      "required": false,
+      "aliases": [
+        "Time"
+      ]
+    },
+    {
+      "key": "workingCapital",
+      "label": "Working Capital",
+      "type": "number",
+      "section": "S06",
+      "list": null,
+      "computed": false,
+      "required": false,
+      "aliases": [
+        "Working Capital"
+      ]
+    },
+    {
+      "key": "corrigendum",
+      "label": "Corrigendum",
+      "type": "textarea",
+      "section": "S06",
+      "list": null,
+      "computed": false,
+      "required": false,
+      "aliases": [
+        "Corrigendum"
+      ]
     }
   ],
   "documents": [
