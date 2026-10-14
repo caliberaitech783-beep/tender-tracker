@@ -62,3 +62,5 @@ npm audit
 ```
 
 Integration tests require the server to be running and remove only their own verification data. The full workflow test includes restore verification and requires an empty tender workspace; use an isolated test database once real tenders have been entered.
+
+All new-tender form fields and document uploads are optional for registration. Leaving Tender ID blank generates an ID automatically. Supplied values still follow format, master-list, uniqueness, and approval checks.

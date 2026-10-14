@@ -23,8 +23,8 @@ export const REGISTRATION_SECTIONS=[
 ];
 export const OPTIONAL_REGISTRATION_FIELDS=['documentFee','turnoverRequired','netWorthRequired','experienceRequired'];
 export const REGISTRATION_KEYS=REGISTRATION_COLUMNS.map(([key])=>key);
-export function registrationRequired(keys){return keys.filter(key=>REGISTRATION_KEYS.includes(key)&&!OPTIONAL_REGISTRATION_FIELDS.includes(key));}
+export function registrationRequired(){return [];}
 export function registrationField(field,current={}){
  const label=REGISTRATION_COLUMNS.find(([key])=>key===field.key)?.[1]||field.label;
- return {...field,label,...(field.key==='tenderType'?{allowedValues:[...new Set(['OB','Logistics','MDO',current.tenderType].filter(Boolean))]}:{}),...(OPTIONAL_REGISTRATION_FIELDS.includes(field.key)?{help:'Optional — not mandatory for every tender.'}:{}),...(field.key==='publishTime'?{help:'Tender publish time.'}:field.key==='submissionTime'?{help:'Bid submission closing time.'}:{} )};
+ return {...field,label,required:false,...(field.key==='tenderType'?{allowedValues:[...new Set(['OB','Logistics','MDO',current.tenderType].filter(Boolean))]}:{}),...(OPTIONAL_REGISTRATION_FIELDS.includes(field.key)?{help:'Optional — not mandatory for every tender.'}:{}),...(field.key==='publishTime'?{help:'Tender publish time.'}:field.key==='submissionTime'?{help:'Bid submission closing time.'}:{} )};
 }

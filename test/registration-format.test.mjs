@@ -14,8 +14,10 @@ test('registration renders exactly 30 columns in the workbook order',()=>{
  assert.ok(registrationField(spec.fields.find(f=>f.key==='tenderType'),{tenderType:'Open Tender'}).allowedValues.includes('Open Tender'));
 });
 test('hidden fields and workbook optional columns cannot block registration',()=>{
- assert.deepEqual(registrationRequired(['tenderId','businessUnit','documentFee','turnoverRequired','netWorthRequired','experienceRequired','workingCapital']),['tenderId','workingCapital']);
- assert.ok(!DEFAULT_SETTINGS.requiredRegistrationFields.includes('documentFee'));
+ assert.deepEqual(registrationRequired(['tenderId','businessUnit','documentFee','turnoverRequired','netWorthRequired','experienceRequired','workingCapital']),[]);
+ assert.deepEqual(DEFAULT_SETTINGS.requiredRegistrationFields,[]);
+ assert.equal(DEFAULT_SETTINGS.requireDocuments,false);
+ for(const field of spec.fields)assert.equal(registrationField(field).required,false);
 });
 test('imports row-four headers, both Time columns and new financial/corrigendum fields',async()=>{
  const w=new ExcelJS.Workbook(),s=w.addWorksheet('Sheet1');
