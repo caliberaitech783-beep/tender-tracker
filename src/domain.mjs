@@ -35,7 +35,7 @@ export function classify(tender,records=[],settings=DEFAULT_SETTINGS,now=new Dat
  else if(d.goDecision==='No-Go')reason='No-Go Decision';else if(d.pipelineStatus==='Cancelled by Client')reason='Cancelled by Client';else if(withdrawn)reason='Withdrawn before Submission';else if(diff!==null&&diff<0)reason='Deadline Missed';
  if(reason)status='Not Applied';
  const deadlineAlert=diff===null?'No deadline':diff<0?'Deadline Passed':diff<=settings.criticalDays?'Critical':diff<=settings.urgentDays?'Urgent':'On Track';
- const docs=records.filter(r=>r.module==='documents');const required=d.requiredDocumentKeys||['AV','AW','AX','AY','AZ','BA','BB','BD','BE'];const completeness=required.length?Math.round(required.filter(k=>docs.some(r=>r.data.type===k)).length/required.length*100):100;
+ const docs=records.filter(r=>r.module==='documents');const required=settings.requireDocuments?(d.requiredDocumentKeys||['AV','AW','AX','AY','AZ','BA','BB','BD','BE']):[];const completeness=required.length?Math.round(required.filter(k=>docs.some(r=>r.data.type===k)).length/required.length*100):100;
  const checklist=records.filter(r=>r.module==='checklist'&&r.data.mandatory==='Yes');
  const pendingStage=d.goDecision!=='Go'?'Go / No-Go Review':completeness<100?'Document Collection':!records.some(r=>r.module==='instruments')&&Number(d.emdAmount)>0?'EMD / BG Arrangement':checklist.some(r=>r.data.status!=='Completed')?'Submission Checklist':sub.status==='Approved for Submission'?'Ready for Submission':'Bid Preparation';
  const actual=sub.actualSubmission?new Date(sub.actualSubmission):sub.submittedAt?new Date(sub.submittedAt):null;

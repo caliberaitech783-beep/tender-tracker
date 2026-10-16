@@ -1022,37 +1022,37 @@
     {
       "key": "AV",
       "label": "NIT / Tender Notice",
-      "required": true
+      "required": false
     },
     {
       "key": "AW",
       "label": "Scope of Work - SoW",
-      "required": true
+      "required": false
     },
     {
       "key": "AX",
       "label": "Instruction to Bidders - ITB",
-      "required": true
+      "required": false
     },
     {
       "key": "AY",
       "label": "Special Conditions of Contract - SCC",
-      "required": true
+      "required": false
     },
     {
       "key": "AZ",
       "label": "General Conditions of Contract - GCC",
-      "required": true
+      "required": false
     },
     {
       "key": "BA",
       "label": "Technical Specifications",
-      "required": true
+      "required": false
     },
     {
       "key": "BB",
       "label": "BOQ / Price Schedule",
-      "required": true
+      "required": false
     },
     {
       "key": "BC",
@@ -1062,12 +1062,12 @@
     {
       "key": "BD",
       "label": "Qualification & Evaluation Criteria",
-      "required": true
+      "required": false
     },
     {
       "key": "BE",
       "label": "Bid Forms & Formats",
-      "required": true
+      "required": false
     },
     {
       "key": "BF",
