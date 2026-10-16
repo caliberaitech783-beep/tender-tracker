@@ -7,10 +7,11 @@ import {DEFAULT_SETTINGS} from '../src/domain.mjs';
 import {readFormImport} from '../form-import.mjs';
 const spec=JSON.parse(fs.readFileSync(new URL('../src/workbook.json',import.meta.url)));
 test('registration renders all columns in the workbook order',()=>{
- assert.equal(REGISTRATION_COLUMNS.length,31);
+ assert.equal(REGISTRATION_COLUMNS.length,32);
  assert.deepEqual(REGISTRATION_SECTIONS.flatMap(([,keys])=>keys),REGISTRATION_COLUMNS.map(([key])=>key));
  for(const [key,label]of REGISTRATION_COLUMNS)assert.equal(registrationField(spec.fields.find(f=>f.key===key)).label,label);
  assert.deepEqual(registrationField(spec.fields.find(f=>f.key==='tenderType')).allowedValues,['OBR','Logistics','MDO']);
+ assert.deepEqual(registrationField(spec.fields.find(f=>f.key==='businessUnit')).allowedValues,['CMLL','KSR']);
  assert.ok(registrationField(spec.fields.find(f=>f.key==='tenderType'),{tenderType:'Open Tender'}).allowedValues.includes('Open Tender'));
 });
 test('hidden fields and workbook optional columns cannot block registration',()=>{
