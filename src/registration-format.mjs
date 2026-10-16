@@ -11,7 +11,7 @@ export const REGISTRATION_COLUMNS=[
  ['owner','Bid Manager/Owner'],['goDecision','Go No Go decision'],['pipelineStatus','Pipeline Status'],
  ['location','Location'],['portalUrl','Portal URL'],['turnoverRequired','Average Turnover'],
  ['workingCapital','Working Capital'],['netWorthRequired','Min. Net Worth Required'],
- ['experienceRequired','Similar Work Experience Required'],['jvAllowed','JV / Consortium Allowed'],
+ ['experienceRequired','Similar Work Experience Required'],['costImpactedAnalysis','Cost Impacted Analysis'],['jvAllowed','JV / Consortium Allowed'],
  ['corrigendum','Corrigendum']
 ];
 export const REGISTRATION_SECTIONS=[

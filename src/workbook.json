@@ -1016,6 +1016,15 @@
       "aliases": [
         "Corrigendum"
       ]
+    },
+    {
+      "key": "costImpactedAnalysis",
+      "label": "Cost Impacted Analysis",
+      "type": "textarea",
+      "required": false,
+      "section": "S06",
+      "list": null,
+      "computed": false
     }
   ],
   "documents": [
