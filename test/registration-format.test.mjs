@@ -10,7 +10,7 @@ test('registration renders all columns in the workbook order',()=>{
  assert.equal(REGISTRATION_COLUMNS.length,31);
  assert.deepEqual(REGISTRATION_SECTIONS.flatMap(([,keys])=>keys),REGISTRATION_COLUMNS.map(([key])=>key));
  for(const [key,label]of REGISTRATION_COLUMNS)assert.equal(registrationField(spec.fields.find(f=>f.key===key)).label,label);
- assert.deepEqual(registrationField(spec.fields.find(f=>f.key==='tenderType')).allowedValues,['OB','Logistics','MDO']);
+ assert.deepEqual(registrationField(spec.fields.find(f=>f.key==='tenderType')).allowedValues,['OBR','Logistics','MDO']);
  assert.ok(registrationField(spec.fields.find(f=>f.key==='tenderType'),{tenderType:'Open Tender'}).allowedValues.includes('Open Tender'));
 });
 test('hidden fields and workbook optional columns cannot block registration',()=>{
@@ -23,11 +23,11 @@ test('imports row-four headers, both Time columns and new financial/corrigendum 
  const w=new ExcelJS.Workbook(),s=w.addWorksheet('Sheet1');
  s.getRow(4).values=REGISTRATION_COLUMNS.map(([,label])=>label);
  s.getRow(5).getCell(5).value='Dropdown OB, Logistics , MDO';s.getRow(5).getCell(25).value='Note: Not mandatory';
- const values={tenderId:'TND-2026-1234',title:'Mine contract',client:'Client',tenderType:'OB',publishDate:new Date('2026-10-12T00:00:00Z'),publishTime:0.375,deadline:new Date('2026-10-30T00:00:00Z'),submissionTime:0.625,workingCapital:500000,corrigendum:'Deadline extended',costImpactedAnalysis:'Additional transport costs'};
+ const values={tenderId:'TND-2026-1234',title:'Mine contract',client:'Client',tenderType:'OBR',publishDate:new Date('2026-10-12T00:00:00Z'),publishTime:0.375,deadline:new Date('2026-10-30T00:00:00Z'),submissionTime:0.625,workingCapital:500000,corrigendum:'Deadline extended',costImpactedAnalysis:'Additional transport costs'};
  s.getRow(6).values=REGISTRATION_COLUMNS.map(([key])=>values[key]??null);
  const masters=Object.entries(spec.masters).flatMap(([list,values])=>values.map(value=>({list,code:value,value,active:true})));
  const {rows}=await readFormImport(await w.xlsx.writeBuffer(),'new tender format.xlsx',spec.fields,masters);
  assert.equal(rows.length,1);assert.equal(rows[0].row,6);assert.deepEqual(rows[0].warnings,[]);
  assert.equal(rows[0].data.publishTime,'09:00');assert.equal(rows[0].data.submissionTime,'15:00');
- assert.equal(rows[0].data.costImpactedAnalysis,'Additional transport costs');assert.equal(REGISTRATION_COLUMNS.findIndex(([key])=>key==='costImpactedAnalysis'),REGISTRATION_COLUMNS.findIndex(([key])=>key==='experienceRequired')+1);assert.equal(rows[0].data.workingCapital,500000);assert.equal(rows[0].data.corrigendum,'Deadline extended');assert.equal(rows[0].data.tenderType,'OB');
+ assert.equal(rows[0].data.costImpactedAnalysis,'Additional transport costs');assert.equal(REGISTRATION_COLUMNS.findIndex(([key])=>key==='costImpactedAnalysis'),REGISTRATION_COLUMNS.findIndex(([key])=>key==='experienceRequired')+1);assert.equal(rows[0].data.workingCapital,500000);assert.equal(rows[0].data.corrigendum,'Deadline extended');assert.equal(rows[0].data.tenderType,'OBR');
 });
